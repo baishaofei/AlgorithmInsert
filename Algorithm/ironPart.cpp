@@ -1,6 +1,6 @@
 #   include "stdafx.h"
 #include "iostream"
-using na`mespace std;
+using namespace std;
 typedef int Arr[201][201];
 #define M 101
 #define INF  0x7FFFFFFF
