@@ -25,6 +25,20 @@ void lcs(int* a, int la, int* b, int lb, int* c, int lc) {
 	}
 	return;
 }
+
+void clcs(int* a, int la, int* b, int lb, int* c, int lc) {
+	for (int i = 1; i < la; i++) {
+		for (int j = 1; j < lb; j++) {
+			if (a[i] == b[j]) {
+				C[i][j] = C[i - 1][j - 1] + 1;
+			}
+			else {
+				C[i][j] = 0;
+			}
+		}
+	}
+	return;
+}
 void printLcs(int i, int j, int* a, int* b) {
 	if (i == 0 || j == 0) {
 		return;
@@ -45,7 +59,8 @@ int main() {
 
 	int a[] = { 0,1,0,0,1,0,1,0,1 };
 	int b[] = { 0,1,0,1,1,0,1,1,0 };
-	lcs(a, 9, b, 9, NULL, 0);
+	//lcs(a, 9, b, 9, NULL, 0);
+	clcs(a, 9, b, 9, NULL, 0);
 	printLcs(8, 8, a, b);
 	return 0;
 }
