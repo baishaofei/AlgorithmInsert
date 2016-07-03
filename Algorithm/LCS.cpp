@@ -3,7 +3,7 @@
 using namespace std;
 #define M 200
 int C[M + 1][M + 1] = { 0 };
-char B[M + 1][M + 1] = { "" };
+char B[M + 1][M + 1] = { '\0' };
 
 
 void lcs(int* a, int la, int* b, int lb, int* c, int lc) {
@@ -39,6 +39,7 @@ void clcs(int* a, int la, int* b, int lb, int* c, int lc) {
 	}
 	return;
 }
+
 void printLcs(int i, int j, int* a, int* b) {
 	if (i == 0 || j == 0) {
 		return;
@@ -55,12 +56,15 @@ void printLcs(int i, int j, int* a, int* b) {
 		printLcs(i - 1, j, a, b);
 	}
 }
+
 int main() {
 
 	int a[] = { 0,1,0,0,1,0,1,0,1 };
 	int b[] = { 0,1,0,1,1,0,1,1,0 };
+	char c[] = { 0, 'a', 'g', 'b', 'f', 'c', 'e' };
 	//lcs(a, 9, b, 9, NULL, 0);
-	clcs(a, 9, b, 9, NULL, 0);
-	printLcs(8, 8, a, b);
+	//clcs(a, 9, b, 9, NULL, 0);
+	//printLcs(8, 8, a, b);
+	increSubStr(c, 7);
 	return 0;
 }
